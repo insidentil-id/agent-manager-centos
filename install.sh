@@ -18,10 +18,6 @@ check_root() {
 	echo ""
 }
 
-check_openport(){
-    sudo yum install nmap
-}
-
 check_os(){
     echo "---Mengecek Operating System---"
     # Installing ELK Stack
@@ -67,17 +63,24 @@ check_java() {
 
 install_fw_nginx() {
     echo "---install firewall and nginx---"
+    sudo yum install epel-release -y
     sudo yum install ufw -y
     sudo yum install nginx -y
     sudo ufw allow 22/tcp
     yes | sudo ufw enable
     sudo systemctl enable nginx
     sudo systemctl start nginx
-    sudo yum install php8.1-fpm -y
-    sudo cp conf/default /etc/nginx/sites-available/default
+    sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    sudo yum -y install yum-utils
+    sudo yum-config-manager --disable 'remi-php*'
+    sudo yum-config-manager --enable remi-php81
+    sudo yum install php-fpm -y
+    sudo cp conf/default /etc/nginx/conf.d/default
     sudo systemctl restart nginx
     sudo ufw allow from any to any port 80
-    sudo chmod -R 777 /var/www/html
+    sudo chmod -R 777 /usr/share/www/html
+    sudo iptables -I INPUT -p tcp --dport 5601 -j ACCEPT
+    sudo iptables -I INPUT -p tcp --dport 9200 -j ACCEPT
     echo "[Step 5] Install firewall and nginx Complete"
     echo ""
 	echo ""
