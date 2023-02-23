@@ -3,7 +3,7 @@ Check to Network Administrator to Open Port 9200, 5601, 8220, 80
 
 ## Pre-install
 sudo yum update<br>
-sudo yum install git
+sudo yum install git<br>
 sudo yum install dos2unix
 
 ## Running As Super User
