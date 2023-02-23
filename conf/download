@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Download Elastic Endpoint Security Agent</title>
+  </head>
+
+  <body>
+    <h2>Download Elastic Endpoint Security Agent</h2>
+    <strong>Download Using Linux</strong><br>
+    curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.3.3-linux-x86_64.tar.gz<br>
+    tar xzvf elastic-agent-8.3.3-linux-x86_64.tar.gz<br>
+    cd elastic-agent-8.3.3-linux-x86_64<br>
+    sudo ./elastic-agent install --url=https://IP_ADDRESS:8220 --enrollment-token=TOKEN_INPUT<br>
+    <br>
+    <strong>Download Using Mac</strong><br>
+    curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.3.3-darwin-x86_64.tar.gz<br>
+    tar xzvf elastic-agent-8.3.3-darwin-x86_64.tar.gz<br>
+    cd elastic-agent-8.3.3-darwin-x86_64<br>
+    sudo ./elastic-agent install --url=https://IP_ADDRESS:8220 --enrollment-token=TOKEN_INPUT<br>
+    <br>
+    <strong>Download Using Windows</strong><br>
+    $ProgressPreference = 'SilentlyContinue'<br>
+    Invoke-WebRequest -Uri https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.3.3-windows-x86_64.zip -OutFile elastic-agent-8.3.3-windows-x86_64.zip<br>
+    Expand-Archive .\elastic-agent-8.3.3-windows-x86_64.zip -DestinationPath .<br>
+    cd elastic-agent-8.3.3-windows-x86_64<br>
+    .\elastic-agent.exe install --url=https://IP_ADDRESS:8220 --enrollment-token=TOKEN_INPUT<br>
+  </body>
+</html>

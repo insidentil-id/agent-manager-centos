@@ -1,0 +1,34 @@
+xpack.fleet.agents.enabled: true
+xpack.fleet.packages:
+  - name: system
+    version: latest
+  - name: elastic_agent
+    version: latest
+  - name: fleet_server
+    version: latest
+  - name: endpoint
+    version: latest
+xpack.fleet.agentPolicies:
+  - name: CA Security Endpoint
+    id: ca-security-endpoint
+    namespace: default
+    monitoring_enabled:
+      - logs
+      - metrics
+    package_policies:
+      - name: CA System
+        id: ca-system
+        package:
+          name: system
+      - name: CA Fleet Server
+        id: ca-fleet
+        package:
+          name: fleet_server
+      - name: CA Agent
+        id: ca-egent
+        package:
+           name: elastic_agent
+      - name: CA Endpoint
+        id: ca-endpoint
+        package:
+           name: endpoint
