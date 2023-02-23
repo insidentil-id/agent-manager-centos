@@ -10,7 +10,7 @@ sudo su
 
 ## Clone Repository
 git clone https://github.com/insidentil-id/agent-manager-centos<br>
-cd agent-manager<br>
+cd agent-manager-centos<br>
 chmod +x install.sh<br>
 ./install.sh
 
