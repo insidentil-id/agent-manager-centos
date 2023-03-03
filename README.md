@@ -14,6 +14,7 @@ git clone https://github.com/insidentil-id/agent-manager-centos<br>
 cd agent-manager-centos<br>
 chmod +x install.sh<br>
 dos2unix install.sh
+./install.sh
 
 ## Credit
 Script By Cyber Threat Hunting Team<br>
